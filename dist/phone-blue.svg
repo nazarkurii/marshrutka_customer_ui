@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <!-- Phone outline -->
+  <rect x="28" y="8" width="72" height="112" rx="16" stroke="#3AA0FF" stroke-width="8" />
+  <!-- Speaker notch -->
+  <rect x="52" y="18" width="24" height="6" rx="3" fill="#3AA0FF" />
+  <!-- Home indicator -->
+  <rect x="52" y="104" width="24" height="6" rx="3" fill="#3AA0FF" />
+  <title>Blue phone icon — outline</title>
+</svg>

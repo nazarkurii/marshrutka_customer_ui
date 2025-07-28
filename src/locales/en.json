@@ -1,0 +1,392 @@
+{
+  "navbar": {
+    "languageCurrency": {
+      "languageButton": "Language",
+      "currencyButton": "Currency",
+      "save": "Save"
+    },
+    "support": "Support",
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "footer": {
+    "message": "A Ukrainian travel company dedicated to delivering our customers from their homes to detailed addresses abroad with premium comfort.",
+    "legalDocuments": "Legal Policy",
+    "logoMessage": "Premium Buses",
+    "aboutButton": "About Marshrutka",
+    "newsButton": "News Room",
+    "mobileApp": {
+      "message": "Try our mobile app",
+      "description": "We will notify you if the ticket price drops"
+    }
+  },
+  "internalServerError": "Unfortunately, the service is temporarily unavailable. Please try again later...",
+  "authentication": {
+    "description": "Unlock premium rewards with Marshrutka",
+    "or": "or",
+    "showPassword": "Show password",
+    "password": "Password",
+    "legalMessage": "By continuing, you have read and agree to our",
+    "termsLink": "Terms and Conditions",
+    "googleError": "Unfortunately, an error occurred. Google authentication is temporarily unavailable.",
+    "login": {
+      "message": "Log In",
+      "name": "Log In",
+      "google": "Log in with Google",
+      "changeFormMessage": "Don't have an account?",
+      "problem": "Incorrect email or password.",
+      "forgotPassword": {
+        "link": "Forgot password?",
+        "name": "Password Reset",
+        "nonExistingEmail": "No user exists with this email.",
+        "sendCode": "Send code",
+        "password": "Password",
+        "repeatPassword": "Repeat password",
+        "showPasswords": "Show passwords",
+        "passwordsDiffer": "Passwords do not match",
+        "requierments": "Must contain at least one uppercase letter and a number",
+        "remember": "Remembered your password?"
+      }
+    },
+    "singup": {
+      "message": "Sign Up",
+      "email": {
+        "emailExists": "Email is already in use. Use another or try logging in.",
+        "sendCodeButton": "Send",
+        "verificationMessage": "Enter the verification code we sent to your email:",
+        "verificationCodeError": "The provided code does not match the sent code."
+      },
+      "name": "Sign Up",
+      "google": "Sign up with Google",
+      "changeFormMessage": "Already have an account?",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "problem": "There are some issues with the provided data:",
+      "phoneNumberProblem": "·Invalid phone number",
+      "dateOfBirthProblem": "·User must be at least 18 years old"
+    }
+  },
+  "activeButton": {
+    "success": "Success!",
+    "continue": "Continue"
+  },
+  "error": "Something went wrong, please try again later...",
+  "profile": {
+    "adresses": {
+      "name": "Addresses",
+      "description": "Save for future trips",
+      "empty": "Addresses will appear here once you add them.",
+      "new": "Add address",
+      "edit": {
+        "city": "City",
+        "street": {
+          "available": "Street",
+          "unavailable": "Please select a city first"
+        },
+        "houseNumber": "House number",
+        "apartmentNumber": "Apartment number"
+      }
+    },
+    "general": {
+      "name": "Profile",
+      "description": "Save personal information for trips",
+      "basicInfo": {
+        "name": "General Information",
+        "description": "Make sure the information you provided is up-to-date.",
+        "info": {
+          "name": "Name",
+          "dateOfBirth": "Date of Birth",
+          "error": "User must be at least 18 years old.",
+          "edit": {
+            "firstName": "First Name",
+            "lastName": "Last Name"
+          }
+        }
+      },
+      "contactInfo": {
+        "name": "Contact Information",
+        "description": "Receive additional info and news about your trips.",
+        "info": {
+          "phoneNumber": "Phone number",
+          "emptyPhoneNumber": "Missing",
+          "email": "Email",
+          "edit": {
+            "codeDescription": "Enter the verification code we sent to your email.",
+            "error": "Something went wrong, please try again later...",
+            "emailError": "This email is already in use.",
+            "phoneNumberError": "Non-existent number."
+          }
+        }
+      },
+      "registered": "Registered",
+      "edit": "Edit"
+    },
+    "passengers": {
+      "name": "Passengers",
+      "description": "Save passengers for future trips",
+      "empty": "Passengers will appear here once you add them.",
+      "new": "Add passenger",
+      "edit": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "dateOfBirth": "Date of Birth"
+      }
+    },
+    "tickets": {
+      "name": "Tickets",
+      "description": "Save your tickets here",
+      "empty": "Tickets will appear here once you purchase them.",
+      "expired": "Expired"
+    },
+    "parcels": {
+      "name": "Parcels",
+      "description": "Save parcels here",
+      "empty": "Parcels will appear here once you purchase them.",
+      "created": "Created"
+    },
+    "about": {
+      "description": "Learn more about us"
+    },
+    "support": {
+      "description": "Find answers to questions"
+    },
+    "legalDocuments": {
+      "description": "Read before traveling"
+    },
+    "connections": {
+      "description": "Search for convenient connections"
+    }
+  },
+  "edit": "Edit",
+  "showMore": "Show More",
+  "save": "Save",
+  "areYouSure": "Are you sure?",
+  "delete": "Delete",
+  "cancel": "Cancel",
+  "send": "Send",
+  "connections": {
+    "search": {
+      "description": "Search for convenient connections",
+      "passengers": "Passengers",
+      "passengersNumber": "Number of passengers",
+      "adults": {
+        "name": "Adults",
+        "description": "18 years and older"
+      },
+      "teenagers": {
+        "name": "Teenagers",
+        "description": "16-18 years"
+      },
+      "children": {
+        "name": "Children",
+        "description": "Under 16 years",
+        "requirement": "Must travel with a guardian"
+      }
+    },
+    "result": {
+      "cheapest": "Cheapest",
+      "selectTicket": "Select Ticket",
+      "travelTime": "Travel Time",
+      "connection": "Connection",
+      "hours": "h",
+      "ticketsLeft": "Available Tickets",
+      "empty": "Unfortunately, no connections are available on this day.",
+      "doesntFit1": "Unfortunately, there are not enough tickets left for",
+      "doesntFit2": "passengers.",
+      "seeAnyway": "View anyway",
+      "infantsDoesntCount": "Infants do not require a ticket if traveling on an adult's lap."
+    },
+    "popular": {
+      "name": "Popular Destinations",
+      "description": "from Ukraine"
+    }
+  },
+  "connection": {
+    "seatReservation": "Seat Reservation",
+    "taken": "Taken",
+    "table": "Table",
+    "passengersAlert": "Please select passengers first.",
+    "choosePassengers": "Passengers",
+    "luggage": "Luggage",
+    "allertChildren": "To select a passenger under 16, select a guardian first.",
+    "chooseSeats": "Choose Seats",
+    "contactInfo": "Contact Information",
+    "fromAdress": "Departure Address",
+    "toAdress": "Arrival Address",
+    "nonExistingStreet": "Non-existent street",
+    "nonExistingCity": "Non-existent city",
+    "languageWarning": "Selected language:",
+    "chooseCityFirst": "Please select a city first",
+    "country": "Country",
+    "city": "City",
+    "street": "Street",
+    "houseNumber": "House Number",
+    "apartmentNumber": "Apartment Number",
+    "searchAdressExample": "Example: Street 10, City",
+    "total": "Total",
+    "vat": "(incl. VAT)",
+    "serviceFee": "Service Fee",
+    "agreement1": "I have read the",
+    "privatPolicy": "Privacy Policy",
+    "agreement2": "and agree to the",
+    "booking": "Booking Policy",
+    "purchase": "Purchase",
+    "adult": "Adult",
+    "teenager": "Teenager",
+    "child": "Child",
+    "backpack": "Backpack",
+    "smallLuggage": "Small suitcase",
+    "largeLuggage": "Large suitcase",
+    "unavailableTicket": {
+      "title": "Something went wrong...",
+      "alreadyBought": "Someone reserved seats while you were filling out the form. You can try reducing the number of passengers. We are very sorry...",
+      "tooManyPassengers": "Unfortunately, our bus cannot accommodate this many passengers. You can try reducing the number of passengers. We are very sorry...",
+      "takenSeats": "Unfortunately, someone reserved your selected seats while you were filling out the form. We have selected new seats for you, but you can still change them if available.",
+      "checkSeats": "View Seats",
+      "purchaseCanceled": "It seems there were problems with the payment..."
+    }
+  },
+  "search": "Search",
+  "from": "from",
+  "back": "Back",
+  "tryAgain": "Try Again",
+  "comingSoon": "Coming Soon...",
+  "findConnections": "Find Connections",
+  "cm": "cm",
+  "countries": {
+    "Poland": "Poland",
+    "Germany": "Germany",
+    "Czechia": "Czechia",
+    "Estonia": "Estonia",
+    "Latvia": "Latvia",
+    "Lithuania": "Lithuania",
+    "Slovakia": "Slovakia",
+    "Hungary": "Hungary",
+    "Ukraine": "Ukraine"
+  },
+  "about": {
+    "hero": {
+      "title": "About Marshrutka",
+      "subtitle": "A premium transport company connecting Ukraine with Europe with comfort and safety."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "text1": "Our mission at Marshrutka is to provide safe, comfortable, and affordable transport from Ukraine to Europe. We focus on quality, convenience, and premium service for our clients.",
+      "text2": "Our team ensures that every trip is smooth and enjoyable, from booking to arrival."
+    },
+    "values": {
+      "title": "Our Values",
+      "safety": {
+        "title": "Safety",
+        "text": "Your safety is our top priority on every trip."
+      },
+      "comfort": {
+        "title": "Comfort",
+        "text": "Modern buses with spacious seats and premium amenities."
+      },
+      "reliability": {
+        "title": "Reliability",
+        "text": "Accurate schedule and seamless booking process."
+      }
+    },
+    "cta": {
+      "title": "Ready to Travel?",
+      "text": "Book your next trip with Marshrutka and experience premium comfort on the road.",
+      "button": "Find Trip"
+    }
+  },
+  "package": {
+    "type": {
+      "documents": "Documents",
+      "package": "Parcel"
+    },
+    "packageSize": "Parcel Size",
+    "name": "Parcel",
+    "additionalVolume": "Additional Volume",
+    "width": "Width",
+    "height": "Height",
+    "length": "Length",
+    "weight": "Weight",
+    "resize": "Resize",
+    "chooseDate": "Choose Departure Date",
+    "dateError": "No more available dates",
+    "maxWidth": "Maximum Width",
+    "maxHeight": "Maximum Height",
+    "maxLength": "Maximum Length",
+    "contactInfo": {
+      "reciever": "Recipient Contact Information",
+      "sender": "Sender Contact Information"
+    },
+    "fromAddress": "Sender Address",
+    "toAddress": "Delivery Address",
+    "fits": "Fits",
+    "alreadyUnavailableEror": "Unfortunately someone reserved space for the baggage/parcel while you were filling out the form. Try reducing the parcel size or select another date.",
+    "tooBigError": "Unfortunately this parcel will not fit..."
+  },
+  "forward": "Forward",
+  "backward": "Back",
+  "months": {
+    "1": "January",
+    "2": "February",
+    "3": "March",
+    "4": "April",
+    "5": "May",
+    "6": "June",
+    "7": "July",
+    "8": "August",
+    "9": "September",
+    "10": "October",
+    "11": "November",
+    "12": "December"
+  },
+  "daysShort": {
+    "1": "Mon",
+    "2": "Tue",
+    "3": "Wed",
+    "4": "Thu",
+    "5": "Fri",
+    "6": "Sat",
+    "7": "Sun"
+  },
+  "choose": "Choose",
+  "g": "g",
+  "support": {
+    "title": "Support & FAQs",
+    "subtitle": "Find answers to the most common questions or contact our team.",
+    "searchPlaceholder": "Search a question...",
+    "contactTitle": "Still need help?",
+    "contactSubtitle": "Our support team is always ready to assist you.",
+    "contactButton": "Contact Support",
+    "faqs": [
+      {
+        "q": "What is Marshrutka.Store?",
+        "a": "Marshrutka.Store is a service for fast and affordable shipment of parcels or documents between cities."
+      },
+      {
+        "q": "How to send a parcel?",
+        "a": "Select the route, enter the size and weight of the parcel, confirm the order, and track delivery online."
+      },
+      {
+        "q": "What are the size and weight limits?",
+        "a": "We accept parcels from 10 to 1000 mm per side and up to 50 kg in weight."
+      },
+      {
+        "q": "Can I send documents?",
+        "a": "Yes, document delivery is supported and has fixed parameters."
+      },
+      {
+        "q": "How to track delivery?",
+        "a": "Tracking is available in your account or via the link sent to your email."
+      },
+      { "q": "What if delivery fails?", "a": "You can retry the saved parcel or contact support." },
+      {
+        "q": "Is insurance available?",
+        "a": "Yes, all parcels have basic insurance. Additional insurance can be purchased if desired."
+      },
+      {
+        "q": "How to contact support?",
+        "a": "Write to support@marshrutka.store or use the feedback form on the website."
+      }
+    ]
+  }
+}

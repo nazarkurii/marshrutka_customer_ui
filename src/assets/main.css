@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+.input-bg {
+  background-color: #2e3035;
+}
+
+.editor-leave-active,
+.editor-enter-active {
+  transition: all 0.3s ease-in;
+}
+
+.editor-enter-from,
+.editor-leave-to {
+  opacity: 0;
+}
+
+.order-bg {
+  background-color: #1c1c1c;
+  border-color: color-mix(in oklab, var(--color-white) /* #fff = #ffffff */ 10%, transparent);
+  border-width: 1px;
+}

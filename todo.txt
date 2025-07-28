@@ -1,0 +1,7 @@
+9.cleanup - if live:goroutine. CRON
+2.Check all again
+9.email auth
+14.seo google
+18.logs - stacktrace
+19.ci/cd & docker
+
