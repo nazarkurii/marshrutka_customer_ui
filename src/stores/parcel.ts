@@ -1,5 +1,4 @@
-import Purchase from '@/components/connections/connection/Purchase.vue'
-import router from '@/router'
+
 import { adressTemplate, type Adress } from '@/scripts/adresses'
 import {
   connectionFullTemplate,
@@ -13,7 +12,7 @@ import {
 import { Problem } from '@/scripts/errors'
 import type { Passenger } from '@/scripts/passengers'
 import type { Link } from '@/scripts/request'
-import { getDayNumberFromTime } from '@/scripts/time'
+
 import axios from 'axios'
 
 import { defineStore } from 'pinia'
@@ -75,25 +74,6 @@ export const useParcelStore = defineStore('parcel', {
   }),
 
   getters: {
-    validation(state) {
-      return {
-        width: isNaN(Number(state.width)) || state.width < 10 || state.width > 1000,
-        height: isNaN(Number(state.height)) || state.height < 10 || state.height > 1000,
-        length: isNaN(Number(state.length)) || state.length < 10 || state.length > 1000,
-        weight: isNaN(Number(state.weight)) || state.weight < 1000 || state.weight > 50000,
-      }
-    },
-
-    price(state) {
-      return (
-        (state.width - 20) *
-          (state.length - 20) *
-          (state.height - 20) *
-          (state.connection.parcelPricePerTenCm / 10) +
-        state.connection.minimalParcelPrice
-      )
-    },
-
     volume(state) {
       return state.width * state.height * state.length
     },
@@ -126,6 +106,19 @@ export const useParcelStore = defineStore('parcel', {
         !state.errors.senderInfo.lastName
       )
     },
+
+    validation(state) {
+      return {
+        width: isNaN(Number(state.width)) || state.width < 10 || state.width > 1000,
+        height: isNaN(Number(state.height)) || state.height < 10 || state.height > 1000,
+        length: isNaN(Number(state.length)) || state.length < 10 || state.length > 1000,
+        weight: isNaN(Number(state.weight)) || state.weight < 1000 || state.weight > 50000,
+      }
+    },
+
+    price(state) {
+      return state.connection.price
+    },
   },
   actions: {
     chooseDocuments() {
@@ -154,12 +147,13 @@ export const useParcelStore = defineStore('parcel', {
           }
         } = await axios.get(
           import.meta.env.VITE_API_URL +
-            `/connection/available-parcel-dates/${from}/${to}/${year}/${month}`,
+            `/connection/available-parcel-dates/${from}/${to}/${year}/${month}/${this.width}/${this.height}/${this.length}`,
         )
 
         this.response.year = Number(year)
         this.response.month = Number(month)
         this.response.connections = [...data.connections]
+    
       } catch (err) {
         const problem = new Problem(err)
         if (problem.type.endsWith('calendar-unavailable-yet')) {
@@ -174,7 +168,7 @@ export const useParcelStore = defineStore('parcel', {
     async getConnection(connectionID: string) {
       try {
         const { data }: { data: { connection: ConnectionFull } } = await axios.get(
-          '/connection/' + connectionID,
+          `/connection-parcel/${connectionID}/${this.width}/${this.height}/${this.length}` ,
         )
         var seatsLeft = 0
         data.connection.bus.structure.map((row) => {
@@ -184,9 +178,12 @@ export const useParcelStore = defineStore('parcel', {
             }
           })
         })
+
+       
         Object.assign(this.connection, data.connection)
         this.pickUpAddress.country = data.connection.departureCountry
         this.dropOffAddress.country = data.connection.destinationCountry
+        
       } catch (err) {
         new Problem(err)
       }
@@ -200,17 +197,6 @@ export const useParcelStore = defineStore('parcel', {
       this.retry = route.params.retry == 'true'
       this.weight = Number(route.params.weight)
       this.type = String(route.params.type) as 'documents' | 'package'
-    },
-
-    calcPrice(connection: ConnectionParcel) {
-      return (
-        (connection.minimalParcelPrice +
-          (this.width - 20) *
-            (this.length - 20) *
-            (this.height - 20) *
-            (connection.parcelPricePerTenCm / 10)) /
-        100
-      )
     },
 
     setCookies() {
@@ -230,6 +216,8 @@ export const useParcelStore = defineStore('parcel', {
           width: this.width,
           length: this.length,
           height: this.height,
+          type:this.type,
+          weight: this.weight
         }),
       )
     },
@@ -343,6 +331,6 @@ export interface ParcelCookies {
   width: number
   height: number
   length: number
-  type: 'package' | 'documents'
+  type: string
   weight: number
 }

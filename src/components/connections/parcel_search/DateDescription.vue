@@ -11,7 +11,7 @@
         v-if="parcel.volume <= connection.luggageVolumeLeft"
         class="article items-center gap-[10px] justify-center"
       >
-        <p class="w-fit text-green-500 font-bold">{{ parcel.calcPrice(connection) }}€</p>
+        <p class="w-fit text-green-500 font-bold">{{ (connection.price / 100).toFixed(2) }}€</p>
       </div>
 
       <div class="article items-center gap-[10px] justify-between">

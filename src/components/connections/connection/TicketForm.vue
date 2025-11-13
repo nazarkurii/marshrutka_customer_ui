@@ -148,7 +148,7 @@ const enter = (el: Element, done: () => void) => {
   return gsap.to(element, {
     opacity: 1,
     x: 0,
-    duration: 0.2,
+    duration: 0.,
     delay: 0.2 * Number(element.dataset.index),
     transition: 'ease-in',
   })
@@ -158,7 +158,7 @@ const leave = (el: Element, done: () => void) => {
   return gsap.to(element, {
     opacity: 0,
     x: -200,
-    duration: 0.2,
+    duration: 0.3,
     transition: 'ease-in',
   })
 }

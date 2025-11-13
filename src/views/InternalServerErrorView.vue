@@ -25,7 +25,7 @@ import HeaderSimplified from '@/components/global/header/HeaderSimplified.vue'
 import { previousRouteName } from '@/router'
 import { startApp } from '@/scripts/app'
 import { useAppStore } from '@/stores/app'
-import { onBeforeUnmount, onMounted } from 'vue'
+import { onBeforeMount, onBeforeUnmount, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -37,27 +37,28 @@ const router = useRouter()
 async function testServer() {
   const ok = await app.testServer()
   if (ok) {
+    if (previousRouteName == 'internalServerError' || !previousRouteName) {
+      router.push({ name: 'connections' })
+    } else {
+      router.back()
+    }
     await startApp(router)
     window.onpopstate = null
     app.repeatTestServerAtempt = false
-
-    if (previousRouteName == 'internalServerError' || previousRouteName == '') {
-      router.push({ name: 'connections' })
-    }
-    router.back()
   } else {
-    setTimeout(testServer, 10000)
+    if (app.repeatTestServerAtempt) {
+      setTimeout(testServer, 10000)
+    }
   }
 }
 
-onMounted(() => {
+onBeforeMount(() => {
   if (app.repeatTestServerAtempt) {
     window.onpopstate = () => {
       history.go(1)
     }
-
-    testServer()
   }
+  testServer()
 })
 </script>
 

@@ -40,55 +40,6 @@
         class="flex justify-between w-full items-center"
       >
         <div class="flex gap-[5px]">
-          <p class="text-white/70">{{ `${t('package.name')} x 1` }}</p>
-        </div>
-
-        <p class="text-white/70">
-          {{ (parcel.connection.minimalParcelPrice / 100).toFixed(2) }}
-          €
-        </p>
-      </div>
-      <p class="flex w-full bg-white/20 h-[1px]"></p>
-      <div
-        :class="{
-          'text-xl': resolution.width > 380,
-          'text-m': resolution.width <= 380,
-        }"
-        class="flex justify-between w-full items-center"
-      >
-        <div class="flex gap-[5px]">
-          <p class="text-white/70">
-            {{
-              `${t('package.additionalVolume')} x ${
-                (parcel.width - 20) * (parcel.length - 20) * (parcel.height - 20)
-              }` + 'cm³'
-            }}
-          </p>
-        </div>
-
-        <p class="text-white/70">
-          {{
-            (
-              ((parcel.width - 20) *
-                (parcel.length - 20) *
-                (parcel.height - 20) *
-                (parcel.connection.parcelPricePerTenCm / 10)) /
-              100
-            ).toFixed(2)
-          }}
-          €
-        </p>
-      </div>
-      <p class="flex w-full bg-white/20 h-[1px]"></p>
-
-      <div
-        :class="{
-          'text-xl': resolution.width > 380,
-          'text-m': resolution.width <= 380,
-        }"
-        class="flex justify-between w-full items-center"
-      >
-        <div class="flex gap-[5px]">
           <p class="text-white/70">{{ t('connection.serviceFee') }}</p>
         </div>
         <p class="text-white/70">00.00 €</p>
@@ -158,6 +109,8 @@ const parcel = useParcelStore()
 const app = useAppStore()
 
 const resolution = useResolutionStore()
+
+console.log(parcel.connection)
 </script>
 
 <style scoped></style>

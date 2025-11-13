@@ -113,6 +113,8 @@ const props = defineProps<{
   profile?: boolean
 }>()
 
+console.log(props.parcel)
+
 const { t } = useI18n()
 const resolution = useResolutionStore()
 </script>

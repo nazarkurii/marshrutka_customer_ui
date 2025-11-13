@@ -11,7 +11,7 @@
       <div
         :class="{
           fixed: resolution.width >= 1420,
-          'max-w-[calc((100vw-825px))]': resolution.width < 1530,
+     
           'max-w-[730px]': resolution.width >= 1530,
         }"
         class="flex flex-col gap-[20px] w-full"
@@ -37,7 +37,6 @@
       </div>
     </div>
   </div>
-  npm run dev
 
   <TransparentBackground
     :close="() => {}"
@@ -86,6 +85,7 @@ onBeforeMount(async () => {
 
   try {
     await parcel.getConnection(String(route.params.connectionID))
+ 
   } catch {
     router.push({ name: 'connections' })
   } finally {

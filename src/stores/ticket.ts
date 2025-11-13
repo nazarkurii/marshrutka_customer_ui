@@ -1,4 +1,4 @@
-import router from '@/router'
+
 import { adressTemplate, type Adress } from '@/scripts/adresses'
 import {
   connectionFullTemplate,
@@ -153,6 +153,10 @@ export const useTicketStore = defineStore('ticket', {
       )
     },
 
+    setTicketForm(){
+        const { cookies } = useCookies()
+      cookies.set('ticketForm', JSON.stringify(this.$state))
+    },
     async purchase() {
       this.firstTry = false
       if (!this.allValid) {

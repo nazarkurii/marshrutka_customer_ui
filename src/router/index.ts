@@ -193,7 +193,28 @@ const router = createRouter({
           name: 'parcelOrder',
           component: ParcelOrderView,
           beforeEnter: (to, from, next) => {
-            if (
+             if ( to.params.connectionID == 'failed') {
+                const { cookies } = useCookies()
+                const parcelCookies = cookies.get('parcelForm') as ParcelCookies | null
+
+                console.log(parcelCookies)
+                if (parcelCookies) {
+                  next({
+                    name: 'parcelOrder',
+                    params: {
+                      connectionID: parcelCookies.connectionID,
+                      width: parcelCookies.width,
+                      height: parcelCookies.height,
+                      length: parcelCookies.length,
+                      weight: parcelCookies.weight,
+                      type: parcelCookies.type,
+                      retry: 'true',
+                    },
+                  })
+                  return
+                } 
+              }
+               if (
               Number(to.params.width) < 10 ||
               Number(to.params.width) > 1000 ||
               Number(to.params.length) < 10 ||
@@ -203,7 +224,7 @@ const router = createRouter({
               Number(to.params.weight) < 1000 ||
               Number(to.params.weight) > 50000 ||
               (to.params.type != 'documents' && to.params.type != 'package') ||
-              String(to.params.connectionID).length != 36 ||
+              (String(to.params.connectionID).length != 36 ||String(to.params.connectionID)== "failed") ||
               (String(to.params.retry) != 'true' && String(to.params.retry) != 'false')
             ) {
               next({ name: 'popularDestinations' })
@@ -239,26 +260,6 @@ const router = createRouter({
                 )
               } else if (to.params.connectionID != 'failed') {
                 next()
-              } else if (to.params.retry || to.params.id == 'failed') {
-                const { cookies } = useCookies()
-                const parcelCookies = cookies.get('parcelForm') as ParcelCookies | null
-
-                if (parcelCookies) {
-                  next({
-                    name: 'parcelOrder',
-                    params: {
-                      connectionID: parcelCookies.connectionID,
-                      width: parcelCookies.width,
-                      height: parcelCookies.height,
-                      length: parcelCookies.length,
-                      weight: parcelCookies.weight,
-                      type: parcelCookies.type,
-                      retry: 'true',
-                    },
-                  })
-                } else {
-                  next()
-                }
               } else {
                 next({ name: 'popularDestinations' })
               }
@@ -273,14 +274,17 @@ const router = createRouter({
           name: 'connection',
           component: Connection,
           beforeEnter: (to, from, next) => {
-            if (
+            if (to.params.id != "failed") {
+              if  (
               Number(to.params.adults) <= 0 ||
               isNaN(Number(to.params.children)) ||
               isNaN(Number(to.params.teenagers)) ||
-              String(to.params.id).length != 36 ||
+              String(to.params.id).length != 36  ||
               (String(to.params.retry) != 'true' && String(to.params.retry) != 'false')
-            ) {
+            ){
+
               next({ name: 'popularDestinations' })
+            }
             }
 
             const app = useAppStore()
@@ -331,7 +335,13 @@ const router = createRouter({
           path: 'profile',
           name: 'profile',
           component: ProfileView,
-          beforeEnter: (to, from, next) => {
+         
+          children: [
+            {
+              path: 'general',
+              name: 'general',
+              component: General,
+               beforeEnter: (to, from, next) => {
             const app = useAppStore()
 
             if (!app.loggedIn) {
@@ -342,21 +352,38 @@ const router = createRouter({
               next()
             }
           },
-          children: [
-            {
-              path: 'general',
-              name: 'general',
-              component: General,
             },
             {
               path: 'tickets',
               name: 'tickets',
               component: Tickets,
+               beforeEnter: (to, from, next) => {
+            const app = useAppStore()
+
+            if (!app.loggedIn) {
+              next({ name: 'login' })
+            } else if (to.name == 'profile') {
+              next({ name: 'general' })
+            } else {
+              next()
+            }
+          },
             },
             {
               path: 'parcels',
               name: 'parcels',
               component: Parcels,
+               beforeEnter: (to, from, next) => {
+            const app = useAppStore()
+
+            if (!app.loggedIn) {
+              next({ name: 'login' })
+            } else if (to.name == 'profile') {
+              next({ name: 'general' })
+            } else {
+              next()
+            }
+          },
             },
           ],
         },
@@ -518,6 +545,9 @@ export default router
 
 export let previousRouteName: RouteRecordNameGeneric = ''
 router.beforeEach((to, from, next) => {
-  previousRouteName = from.name
+  if (to.fullPath.startsWith(import.meta.env.VITE_APP_URL)){
+
+    previousRouteName = from.name
+  }
   next()
 })

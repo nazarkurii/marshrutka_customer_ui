@@ -11,7 +11,7 @@
       <div
         :class="{
           fixed: resolution.width >= 1420,
-          'max-w-[calc((100vw-825px))]': resolution.width < 1530,
+        
           'max-w-[730px]': resolution.width >= 1530,
         }"
         class="flex flex-col gap-[20px] w-full"
@@ -80,6 +80,7 @@ onBeforeMount(async () => {
     String(route.params.id),
     Number(route.params.adults) + Number(route.params.children) + Number(route.params.teenagers),
   )
+
 
   if (error) {
     router.push({ name: 'popularDestinations' })

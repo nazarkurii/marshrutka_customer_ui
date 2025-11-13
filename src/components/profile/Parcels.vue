@@ -60,7 +60,9 @@ async function requestParcels(page: number): Promise<{ pages: number; error: Pro
 const leaving = ref(false)
 
 onBeforeRouteLeave(() => {
-  leaving.value = true
+   setTimeout(() => {
+    leaving.value = true
+  }, 100)
 })
 </script>
 

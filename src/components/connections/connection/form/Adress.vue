@@ -70,6 +70,7 @@ import { useAppStore } from '@/stores/app'
 
 import { Problem } from '@/scripts/errors'
 
+
 const props = defineProps<{
   mapID: string
   searchID: string
@@ -80,6 +81,8 @@ const props = defineProps<{
   handleFunc: (adress: Adress) => void
   firstTry: boolean
 }>()
+
+const streetSearch = ref('10 maidan')
 
 const placeDetailsRef = ref<HTMLElement | null>(null)
 

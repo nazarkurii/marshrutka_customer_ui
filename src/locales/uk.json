@@ -226,7 +226,7 @@
     "street": "Вулиця",
     "houseNumber": "Номер будинку",
     "apartmentNumber": "Номер квартири",
-    "searchAdressExample": "Приклад: Вулиця 10, Місто",
+    "searchAdressExample": "Приклад: 10 Вулиця, Місто",
     "total": "Всього",
     "vat": "(вкл. VAT)",
     "serviceFee": "Сервісний внесок",
@@ -398,5 +398,6 @@
         "a": "Напишіть на адресу support@marshrutka.store або скористайтеся формою зворотного зв’язку на сайті."
       }
     ]
-  }
+  },
+  "helpNumbers": "24/7 Номери диспечерів:"
 }

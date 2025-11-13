@@ -22,7 +22,7 @@
       v-if="connection.usable"
       class="absolute w-fit left-1/2 -translate-x-1/2 bottom-[50px]"
     >
-      {{ parcel.volume <= connection.luggageVolumeLeft ? parcel.calcPrice(connection) : 0 }}€
+      {{ parcel.volume <= connection.luggageVolumeLeft ? (connection.price / 100).toFixed(0) : 0 }}€
     </p>
     <p
       :class="{

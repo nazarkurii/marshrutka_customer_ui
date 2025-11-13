@@ -46,11 +46,12 @@ export interface ConnectionParcel extends ConnectionSimplified {
   maxHeight: number
   maxLength: number
   minimalParcelPrice: number
-  parcelPricePerTenCm: number
+  parcelPricePerCm: number
   usable: boolean
   dayNumber: number
   dayMonth: number
   isCurrentMonth: boolean
+  price: number
 }
 
 export interface ConnectionsRange {
@@ -120,8 +121,6 @@ export interface ConnectionFull extends ConnectionSimplified {
   backpackPrice: number
   smallLuggagePrice: number
   largeLuggagePrice: number
-  minimalParcelPrice: number
-  parcelPricePerTenCm: number
 }
 
 export const connectionFullTemplate: ConnectionFull = {
@@ -147,8 +146,6 @@ export const connectionFullTemplate: ConnectionFull = {
   backpackPrice: 0,
   smallLuggagePrice: 0,
   largeLuggagePrice: 0,
-  minimalParcelPrice: 0,
-  parcelPricePerTenCm: 0,
 }
 
 export type SeatType =

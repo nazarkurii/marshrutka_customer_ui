@@ -19,3 +19,9 @@
   border-color: color-mix(in oklab, var(--color-white) /* #fff = #ffffff */ 10%, transparent);
   border-width: 1px;
 }
+
+html,
+body,
+#app {
+  background-color: #171717;
+}

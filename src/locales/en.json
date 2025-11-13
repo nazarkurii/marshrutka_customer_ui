@@ -222,7 +222,7 @@
     "street": "Street",
     "houseNumber": "House Number",
     "apartmentNumber": "Apartment Number",
-    "searchAdressExample": "Example: Street 10, City",
+    "searchAdressExample": "Example: 10 Street, City",
     "total": "Total",
     "vat": "(incl. VAT)",
     "serviceFee": "Service Fee",
@@ -388,5 +388,6 @@
         "a": "Write to support@marshrutka.store or use the feedback form on the website."
       }
     ]
-  }
+  },
+  "helpNumbers": "24/7 Line Numbers:"
 }
