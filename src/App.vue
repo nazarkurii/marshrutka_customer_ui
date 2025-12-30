@@ -12,9 +12,9 @@
       class="flex flex-col gap-[20px] z-[10] bg-neutral-900 items-center"
     >
       <router-view></router-view>
-      <Contact/>
- </div>
-    
+      <p class="fixed m-auto text-5xl text-white font-bold">CI/CD Test 1.0</p>
+      <Contact />
+    </div>
   </div>
 </template>
 
@@ -23,14 +23,12 @@ import { useRoute } from 'vue-router'
 
 import { useResolutionStore } from './stores/resolutionStore'
 
-
 import { useI18n } from 'vue-i18n'
 import { ref } from 'vue'
 import Contact from './components/global/contact/contact.vue'
 
 const resolution = useResolutionStore()
 const route = useRoute()
-
 </script>
 
 <style scoped></style>
