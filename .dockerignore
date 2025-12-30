@@ -1,0 +1,30 @@
+# Node dependencies (we'll install inside Docker)
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-lock.yaml
+
+# Build outputs
+dist
+build
+
+# Environment files
+.env
+.env.*   # ignore all env variants if you load them differently
+
+# Editor files
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git files
+.git
+.gitignore
+
+# Logs
+*.log

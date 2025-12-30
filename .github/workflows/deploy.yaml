@@ -1,0 +1,42 @@
+name: Vue.js
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set Up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+        run: npm install
+        run: npm run test
+
+      - name: Login To GHCR
+        run: echo "${{secrets.GHCR_TOKEN}}" | docker login ghrc.io -u ${{github.actor}}
+
+      - name: Build Docker Image
+        run: docker build -t ghcr.io/${{github.reposetory}}:latest .
+
+      - name: Push Docker Image
+        run: docker push ghcr.io/${{github.reposetory}}:latest
+
+      - name: Deploy To Droplet
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{secrets.DO_HOST}}
+          username: ${{secrets.DO_USER}}
+          key: ${{secrets.DO_SSH_KEY}}
+          script: |
+            cd ~/marshrutka/deployment
+            git pull origin main
+            docker compose pull
+            docker compose up -deploy
+            docker image prune -f
+
