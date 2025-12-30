@@ -1,66 +1,57 @@
 <template>
-      <a
-        href="https://web.telegram.org/
+  <a
+    href="https://web.telegram.org/
         "
-        class="rounded-full"
-        target="_blank"
-      >
-        <img
-          src="/telegram.svg"
-          alt=""
-          class="size-[50px] z-20 shadow-lg shadow-black rounded-full  cursor-pointer transition-all duration-200 hover:scale-105 fixed bottom-[20px] right-[15px]"
-        />
-      </a>
+    class="rounded-full"
+    target="_blank"
+  >
+    <img
+      src="/telegram.svg"
+      alt=""
+      class="size-[50px] z-20 shadow-lg shadow-black rounded-full cursor-pointer transition-all duration-200 hover:scale-105 fixed bottom-[20px] right-[15px]"
+    />
+  </a>
 
-      <img
-      
-        @click="callForm = true"
-        src="/call.svg"
-        alt=""
-        class="size-[50px] shadow-lg shadow-black rounded-full z-20 hover:opacity-100 cursor-pointer transition-all duration-200 hover:scale-105 fixed bottom-[80px] right-[15px]"
+  <img
+    @click="callForm = true"
+    src="/call.svg"
+    alt=""
+    class="size-[50px] shadow-lg shadow-black rounded-full z-20 hover:opacity-100 cursor-pointer transition-all duration-200 hover:scale-105 fixed bottom-[80px] right-[15px]"
+  />
+
+  <TransparentBackground
+    :condition="callForm"
+    :close="
+      () => {
+        callForm = false
+      }
+    "
+  >
+    <div
+      @click.stop
+      class="bg-neutral-900 p-[20px] rounded-2xl shadow-xl gap-[20px] flex flex-col shadow-black px-[10px]"
+    >
+      <img src="/center.svg" class="w-full max-w-[300px]" alt="" />
+      <Input
+        v-model="model"
+        type="text"
+        :available="true"
+        :name="t('profile.general.contactInfo.info.phoneNumber')"
       />
-
-      <TransparentBackground
-        :condition="callForm"
-        :close="
-          () => {
-            callForm = false
-          }
-        "
-      >
-        <div
-          @click.stop
-          class="bg-neutral-900 p-[20px] rounded-2xl shadow-xl gap-[20px] flex flex-col shadow-black px-[10px]"
-        >
-          <img src="/center.svg" class="w-full max-w-[300px]" alt="" />
-          <Input
-            v-model="model"
-            type="text"
-            :available="true"
-            :name="t('profile.general.contactInfo.info.phoneNumber')"
-          />
-          <Input
-            v-model="model"
-            type="text"
-            :available="true"
-            placeholder="+38(050)0688763"
-            :name="t('profile.general.basicInfo.info.name')"
-          />
-          <ActiveButton
-            @click="confirm"
-            :name="t('send')"
-            :active="true"
-            :is-successfull="confirmed"
-          />
-        </div>
-      </TransparentBackground>
-
+      <Input
+        v-model="model"
+        type="text"
+        :available="true"
+        placeholder="+38(050)0688763"
+        :name="t('profile.general.basicInfo.info.name')"
+      />
+      <ActiveButton @click="confirm" :name="t('send')" :active="true" :is-successfull="confirmed" />
+    </div>
+  </TransparentBackground>
 </template>
-
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-
 
 import { useI18n } from 'vue-i18n'
 import { ref } from 'vue'
@@ -86,7 +77,4 @@ function confirm() {
 const { t } = useI18n()
 </script>
 
-
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -2,7 +2,8 @@ name: Vue.js
 
 on:
   push:
-    branches: ['main']
+    tags:
+      - 'v*'
 
 jobs:
   build-test-deploy:
@@ -40,6 +41,8 @@ jobs:
           script: |
             cd ~/marshrutka/deployment
             git pull origin main
+            docker rmi ghcr.io/nazarkurii/marshrutka_customer_ui:latest
             docker compose pull
-            docker compose up -deploy
+            docker compose up -d 
             docker image prune -f
+            docker container prune -f
