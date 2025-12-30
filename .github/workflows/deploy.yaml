@@ -40,5 +40,8 @@ jobs:
           script: |
             cd ~/marshrutka/deployment
             git pull origin main
+            docker rmi ghcr.io/nazarkurii/marshrutka_customer_ui:latest
             docker compose pull
-            docker compose up -d --remove-orphans
+            docker compose up -d 
+            docker image prune -f
+            docker container prune -f
