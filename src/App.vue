@@ -13,7 +13,9 @@
     >
       <router-view></router-view>
       <Contact />
-      <p class="fixed m-auto text-5xl text-white font-bold z-[300] mt-[300px]">CI/CD Test 15.0</p>
+      <p class="fixed m-auto text-5xl text-white font-bold z-[300] mt-[300px]">
+        CI/CD Test Tag Test
+      </p>
     </div>
   </div>
 </template>
