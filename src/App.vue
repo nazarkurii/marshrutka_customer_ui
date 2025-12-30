@@ -12,8 +12,8 @@
       class="flex flex-col gap-[20px] z-[10] bg-neutral-900 items-center"
     >
       <router-view></router-view>
-      <p class="fixed m-auto text-5xl text-white font-bold">CI/CD Test 3.0</p>
       <Contact />
+      <p class="fixed m-auto text-5xl text-white font-bold z-[300] mt-[300px]">CI/CD Test 4.0</p>
     </div>
   </div>
 </template>
