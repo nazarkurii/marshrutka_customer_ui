@@ -34,12 +34,12 @@ jobs:
       - name: Deploy To Droplet
         uses: appleboy/ssh-action@v1.0.3
         with:
-        host: ${{ secrets.DO_HOST }}
-        username: ${{ secrets.DO_USER }}
-        key: ${{ secrets.DO_SSH_KEY }}
-        script: |
-          cd ~/marshrutka/deployment
-          git pull origin main
-          docker compose pull
-          docker compose up -d
-          docker image prune -f
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USER }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          script: |
+            cd ~/marshrutka/deployment
+            git pull origin main
+            docker compose pull
+            docker compose up -d
+            docker image prune -f
