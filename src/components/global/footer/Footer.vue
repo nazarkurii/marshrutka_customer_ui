@@ -15,13 +15,13 @@
             <p>+38 (050) 918-42-57</p>
           </div>
           <div class="flex flex-col gap-[20px]">
-            <a
+            <!-- <a
               target="_blank"
               rel="noopener noreferrer"
               :href="app.legalPolicyHref()"
               class="text-white text-xl hover:text-blue-400 transition-all duration-200 cursor-pointer"
               >{{ t('footer.legalDocuments') }}</a
-            >
+            > -->
 
             <FooterButton :name="t('footer.aboutButton')" route-name="about" />
           </div>
@@ -101,7 +101,7 @@ router.beforeEach((to, from, next) => {
     app.footer = false
     setTimeout(() => {
       next()
-    },300)
+    }, 300)
   }
 })
 </script>
