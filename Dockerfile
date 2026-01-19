@@ -23,6 +23,7 @@ FROM nginx:stable-alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/conf.d
 
-EXPOSE 3000
+HEALTHCHECK --interval=10s --timeout=2s --retries=5 \
+    CMD curl -fs http://localhost:3000/health || exit 1
 
 CMD ["nginx", "-g", "daemon off;"]
