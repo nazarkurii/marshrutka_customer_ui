@@ -116,7 +116,7 @@ export const useAppStore = defineStore('app', {
     },
     async testServer(): Promise<boolean> {
       try {
-        await axios.get(import.meta.env.VITE_API_URL)
+        await axios.get(import.meta.env.VITE_API_URL + '/health')
         return true
       } catch (err) {
         return false
