@@ -2,7 +2,9 @@
   <transition name="component" appear>
     <div class="px-[10px] mx-autto" v-if="!leave">
       <div class="bg pt-[20px] rounded-3xl w-full max-w-[700px]">
-        <h1 class="text-3xl ml-[20px] font-bold text-white">{{ t('connections.popular.name') }}</h1>
+        <h1 class="text-3xl ml-[20px] font-bold text-white">
+          {{ (t('connections.popular.name'), 'Pasha hello') }}
+        </h1>
         <h2 class="text-2xl ml-[20px] text-white/80">{{ t('connections.popular.description') }}</h2>
         <div class="flex w-full px-[20px] pb-[20px] overflow-x-auto scroll-">
           <div class="flex gap-[15px] mt-[20px] w-[660px] cursor-pointer">
